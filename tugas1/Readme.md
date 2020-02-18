@@ -1,6 +1,8 @@
 # Business Understanding
-
-
+- Menyeleksi planet mana yang kemungkinan bisa ada tanda-tanda kehidupan di sana
+- Menyeleksi Kepler Object Interest (KOI) apakah benar-benar planet atau bintang
+- Mengelompokkan KOI yang memiliki ciri-ciri yang mirip
+- Apa karakteristik umum dari exoplanet yang bisa kita dapatkan?
 
 
 # Data Understanding
@@ -57,6 +59,7 @@ Dataset yang saya gunakan berjumlah 9564 baris yang terdiri dari 50 kolom.
 - dec : KIC Declination
 - koi_kepmag : Kepler-band (mag) 
 
+
 ## Data Preparation
 Pada proses ini, dataset akan dibaca dan dipecah (**split**) menjadi 2 bagian.
 
@@ -96,6 +99,7 @@ Setelah itu, sambungkan panahnya sesuai dengan grafik yang di **atas**.
 Proses **Data Preparation** telah selesai. Akan terbentuk 2 file baru, yaitu **hasil_split.csv** dan **hasil_split2.csv**
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas1/dokumentasi/hasil_split.JPG?raw=true)
+
 
 
 ## Modelling
@@ -177,6 +181,8 @@ Ketika semua proses telah di eksekusi, maka akan terbentuk tabel baru yaitu **ha
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas1/dokumentasi/hasil.png?raw=true)
 
 Yes. Proses **Modelling** telah selesai. Proses selanjutnya yaitu **Evaluation** untuk mengecek apakah data yang telah kita append itu **reliable** (datanya sama, urutannya sama) dengan dataset kita sebelumnya. 
+
+
 ## Evaluation
 Untuk melakukan evaluasi, saya mengunjungi link berikut.
 [https://extendsclass.com/csv-diff.html](https://extendsclass.com/csv-diff.html)
@@ -188,8 +194,8 @@ Yang berwarna merah berarti berbeda, akan tetapi hanya berbeda pada tanda **"**.
 
 
 ## Referensi
-[https://stackedit.io/](https://stackedit.io/)
-[https://extendsclass.com/csv-diff.html](https://extendsclass.com/csv-diff.html)
-[https://docs.knime.com/](https://docs.knime.com/)
-
-
+- [https://stackedit.io/](https://stackedit.io/)
+- [https://extendsclass.com/csv-diff.html](https://extendsclass.com/csv-diff.html)
+- [https://docs.knime.com/](https://docs.knime.com/)
+- [https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=koi](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=koi)
+- [https://exoplanetarchive.ipac.caltech.edu/docs/API_kepcandidate_columns.html](https://exoplanetarchive.ipac.caltech.edu/docs/API_kepcandidate_columns.html)
