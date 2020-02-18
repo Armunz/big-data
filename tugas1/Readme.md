@@ -60,7 +60,7 @@ Dataset yang saya gunakan berjumlah 9564 baris yang terdiri dari 50 kolom.
 - koi_kepmag : Kepler-band (mag) 
 
 
-## Data Preparation
+# Data Preparation
 Pada proses ini, dataset akan dibaca dan dipecah (**split**) menjadi 2 bagian.
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas1/dokumentasi/Data%20Preparation.JPG?raw=true)
@@ -102,7 +102,7 @@ Proses **Data Preparation** telah selesai. Akan terbentuk 2 file baru, yaitu **h
 
 
 
-## Modelling
+# Modelling
 
 Pada proses ini, salah satu data yang telah di split tadi akan diubah formatnya menjadi format **database**. Setelah itu, kedua data akan dibaca kembali. 
 
@@ -150,7 +150,7 @@ Konfigurasikan tools tersebut seperti berikut.
 Proses **Modelling** telah selesai. Output dari **Column Appender** nantinya akan dimasukkan ke file **.csv** dan ke dalam **database**. Proses memasukkan data tersebut disebut **Deployment**.
 
 
-## Deployment
+# Deployment
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas1/dokumentasi/Deployment.JPG?raw=true)
 
@@ -183,7 +183,7 @@ Ketika semua proses telah di eksekusi, maka akan terbentuk tabel baru yaitu **ha
 Yes. Proses **Modelling** telah selesai. Proses selanjutnya yaitu **Evaluation** untuk mengecek apakah data yang telah kita append itu **reliable** (datanya sama, urutannya sama) dengan dataset kita sebelumnya. 
 
 
-## Evaluation
+# Evaluation
 Untuk melakukan evaluasi, saya mengunjungi link berikut.
 [https://extendsclass.com/csv-diff.html](https://extendsclass.com/csv-diff.html)
 Dan berikut hasilnya:
@@ -193,7 +193,7 @@ Dan berikut hasilnya:
 Yang berwarna merah berarti berbeda, akan tetapi hanya berbeda pada tanda **"**.
 
 
-## Referensi
+# Referensi
 - [https://stackedit.io/](https://stackedit.io/)
 - [https://extendsclass.com/csv-diff.html](https://extendsclass.com/csv-diff.html)
 - [https://docs.knime.com/](https://docs.knime.com/)
