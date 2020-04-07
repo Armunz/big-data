@@ -1,4 +1,4 @@
-# Implementasi Algoritma ALS (Alternating Least Square) untuk mendapatkan Rekomendasi Film dari rating yang diberikan oleh user menggunakan Apache Spark Collaborative Filtering di KNIME.
+# Rekomendasi Film menggunakan Algoritma ALS (Alternating Least Square)
 
 ## Overview
 
