@@ -38,8 +38,7 @@ Dataset yang digunakan adalah dataset meteran listrik di Irlandia. Data diload m
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/data%20preparation.JPG?raw=true)
 
-## 4. Modeling
-Pada proses modeling, data akan di-ubah formatnya menjadi DataFrame/RDD agar dapat dilakukan query menggunakan Spark.
+Lalu data akan di-ubah formatnya menjadi DataFrame/RDD agar dapat dilakukan query menggunakan Spark.
 
 Karena prosesnya menggunakan Spark, maka kita perlu menggunakan node **Create Local Big Data Environment**.
 
@@ -107,8 +106,7 @@ dan 1 output, yaitu:
 
  - **kotak hitam** (data yang telah berbentuk DataFrame/RDD)
 
-## 5. Evaluation
-Pada proses evaluation ini, kita akan mengimplementasikan business understanding-nya.
+Selanjutnya, kita akan melakukan ekstraksi data untuk mendapatkan value waktu seperti tahun, bulan, minggu, hari dan sebagainya sesuai dengan **Business Understanding**-nya.
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/evaluation.JPG?raw=true)
 
@@ -648,14 +646,90 @@ Berikut adalah hasilnya:
 
 Proses selanjutnya adalah Plotting menggunakan algoritma PCA dan K-Means.
 
-### 4. Scatter Plot
-Pada proses ini akan dilakukan plotting dari hasil perhitungan persentasi di atas menggunakan algoritma PCA, dan K-Means di node **PCA, K-Means, Scatter Plot**.
-
+## 3. Modelling
+Pada proses ini akan dilakukan pemodelan data menggunakan algoritma K-Means dan PCA.
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/scatter.JPG?raw=true)
+
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/metanode.JPG?raw=true)
+
+Data akan dinormalisasi terlebih dahulu sebelum proses pemodelan menggunakan algoritma K-Means dan PCA. 
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/normalisasi%20config.JPG?raw=true)
+
+Normalisasi menggunakan nilai minimum 0.0 dan maksimum 1.0. Berikut ini adalah hasilnya.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/normalisasi%20hasil.JPG?raw=true)
+
+Lalu, data yang telah dinormalisasi akan di-model dengan algoritma PCA.
+Berikut adalah konfigurasinya.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/pca%20config.JPG?raw=true)
+
+Algoritma PCA adalah algoritma untuk **mereduksi dimensi** (mengurangi jumlah kolom) dari sebuah dataset sehingga data tersebut dapat divisualisasikan jika terdapat cluster atau class tertentu. Untuk lebih detailnya, bisa mengunjungi link berikut : [PCA Algorithm](https://en.wikipedia.org/wiki/Principal_component_analysis).
+
+Berikut adalah hasilnya.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/pca%20hasil.JPG?raw=true)
+
+Selanjutnya adalah pemodelan data menggunakan algoritma K-Means. Berikut adalah konfigurasinya.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/k-means%20config.JPG?raw=true)
+
+Pada konfigurasi tersebut, akan dibuat 3 cluster berdasarkan data yang ada.
+Berikut adalah hasilnya.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/k-means%20hasil.JPG?raw=true)
+
+Selanjutnya adalah melakukan filtrasi kolom pada hasil modeling data menggunakan K-Means untuk mengambil id dan Cluster-nya saja. Hal ini dikarenakan, model data akan dijoin dengan hasil pemodelan menggunakan algoritma PCA.
+
+Untuk melakukan filtrasi, diperlukan node **Spark Column Filter**.
+
+Berikut adalah konfigurasi dan hasilnya.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/spark%20column%20filter%20config.JPG?raw=true)
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/hasil%20spark%20column%20filter.JPG?raw=true)
+
+
+
+Setelah proses pemodelan untuk kedua algoritma selesai, maka hasil pemodelan tersebut akan di-joinkan menggunakan node **Spark Joiner**.
+
+Berikut adalah hasilnya.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/hasil%20spark%20joiner%20%28k-means%29.JPG?raw=true)
+
+Lalu, selanjutnya data model akan diubah ke format table dan di-denormalisasi agar dapat dilakukan proses evaluasi.
+
+Untuk mengubah data ke format table dapat menggunakan node **Spark to Table**. Dan untuk melakukan denormalisasi data, dapat menggunakan node **Denormalizer PMML**.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/spark%20to%20table%20%28untuk%20visualisasi%29.JPG?raw=true)
+
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/denormalisasi.JPG?raw=true)
+
+Setelah itu, model data telah siap untuk proses Evaluasi.
+
+## 4. Evaluation
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/evaluation1.JPG?raw=true)
+
+Pada tahap ini, data yang telah dimodelkan menggunakan algoritma PCA dan K-Means akan di-evaluasi dengan cara di Plot menggunakan node **Scatter Plot**.
+
+Sebelum masuk ke node **Scatter Plot**, format angka pada data harus diubah ke format string, agar proses pemberian warna pada data lebih jelas.
+Proses tersebut ada pada node **Number To String** walaupun node ini telah **(deprecated/kadaluarsa)**. 
+
+Setelah data diubah ke format string, maka data akan diberi warna menggunakan node **Color Manager**. Lalu data akan diproses menggunakan **Scatter Plot**.
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/scatter%20plot%20config.JPG?raw=true)
+
+Pada konfigurasi di atas, kolom yang dipilih untuk diplot adalah PCA dimension 0 dan dimension 1.
 
 Berikut adalah hasilnya:
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/hasil%20PCA,%20K-Means,%20Scatter%20Plot.JPG?raw=true)
+
+Selain menggunakan **Scatter Plot**, data akan dievaluasi dengan node **Table View**. Berikut adalah hasilnya.
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/hasil%20PCA,%20K-Means,%20Scatter%20Plot%20%282%29.JPG?raw=true)
 
@@ -664,6 +738,8 @@ Berikut adalah hasilnya:
 Proses Evaluation telah selesai.
 
 ## 6. Deployment
+
+![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/deployment1.JPG?raw=true)
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/deployment.JPG?raw=true)
 
