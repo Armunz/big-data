@@ -646,7 +646,7 @@ Berikut adalah hasilnya:
 
 Proses selanjutnya adalah Plotting menggunakan algoritma PCA dan K-Means.
 
-## 3. Modelling
+## 4. Modelling
 Pada proses ini akan dilakukan pemodelan data menggunakan algoritma K-Means dan PCA.
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/scatter.JPG?raw=true)
 
@@ -710,7 +710,7 @@ Untuk mengubah data ke format table dapat menggunakan node **Spark to Table**. D
 
 Setelah itu, model data telah siap untuk proses Evaluasi.
 
-## 4. Evaluation
+## 5. Evaluation
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/evaluation1.JPG?raw=true)
 
