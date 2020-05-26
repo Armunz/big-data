@@ -1,3 +1,4 @@
+
 # Analisis Time Series (Produksi Beer Bulanan) menggunakan Spark dan KNIME
 
 Berikut adalah workflow KNIME-nya.
@@ -215,9 +216,9 @@ Setelah melalui proses pembuatan kolom, maka selanjutnya adalah proses agregasi 
 
 Yang pertama, adalah mencari nilai Produksi Beer Total menggunakan node **Spark GroupBy**. Caranya adalah dengan melakukan penjumlahan **(SUM)** pada kolom **production**, lalu di Group By berdasarkan **id**-nya. 
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/total%20usage%20config1.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/total%20usage%20config.JPG?raw=true)
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/total%20usage%20config2.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/total%20usage%20config2.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -235,9 +236,9 @@ Nama kolom yang semula **production** diubah menjadi **total**. Proses untuk men
 
 Proses ini adalah untuk mencari nilai Rata-rata Produksi Beer per Tahun menggunakan node **Spark GroupBy**. Caranya adalah dengan melakukan penjumlahan **(SUM)** pada kolom **production**, lalu di Group By berdasarkan **id**, dan **year**-nya. 
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20year%20config.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20year%20config.JPG?raw=true)
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20year%20config2.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20year%20config2.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -269,7 +270,7 @@ Berikut adalah hasilnya:
 
 ![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/spark%20joiner%20hasil%201.JPG?raw=true)
 
-Proses selanjutnya adalah mencari Rata-rata Produksi Listrik per Bulan.
+Proses selanjutnya adalah mencari Rata-rata Produksi Beer per Bulan.
 
 #### c. Usage by Month
 
@@ -277,9 +278,9 @@ Proses selanjutnya adalah mencari Rata-rata Produksi Listrik per Bulan.
 
 Proses ini adalah untuk mencari nilai Rata-rata Produksi Beer per Bulan menggunakan node **Spark GroupBy**. Caranya adalah dengan melakukan penjumlahan **(SUM)** pada kolom **production**, lalu di Group By berdasarkan **id**, **year**, dan **month**-nya. 
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20month%20config.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20month%20config.JPG?raw=true)
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20month%20config2.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20month%20config2.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -319,9 +320,9 @@ Proses selanjutnya adalah mencari Rata-rata Produksi Beer per Minggu.
 
 Proses ini adalah untuk mencari nilai Rata-rata Produksi Beer per Minggu menggunakan node **Spark GroupBy**. Caranya adalah dengan melakukan penjumlahan **(SUM)** pada kolom **production**, lalu di Group By berdasarkan **id**, **year**, dan **week**-nya. 
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20week%20config.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20week%20config.JPG?raw=true)
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20week%20config2.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20week%20config2.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -361,9 +362,9 @@ Proses selanjutnya adalah mencari Rata-rata Produksi Beer berdasarkan hari dalam
 
 Proses ini adalah untuk mencari nilai Rata-rata Produksi Beer berdasarkan hari dalam Seminggu menggunakan node **Spark GroupBy**. Caranya adalah dengan melakukan penjumlahan **(SUM)** pada kolom **production**, lalu di Group By berdasarkan **id**, **year**, **week**, dan **dayOfWeek**-nya. 
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20day%20of%20week%20config.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20day%20of%20week%20config.JPG?raw=true)
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20day%20of%20week%20config2.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20day%20of%20week%20config2.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -405,9 +406,9 @@ Proses selanjutnya adalah mencari Produksi Beer per Hari.
 
 Proses ini adalah untuk mencari nilai Rata-rata Produksi Beer per Hari menggunakan node **Spark GroupBy**. Caranya adalah dengan melakukan penjumlahan **(SUM)** pada kolom **production**, lalu di Group By berdasarkan **id**, dan **eventDate**-nya. 
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20day%20config.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20day%20config.JPG?raw=true)
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20day%20config2.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20day%20config2.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -447,9 +448,9 @@ Proses selanjutnya adalah mencari Produksi Beer pada saat Weekend dan Weekday.
 
 Proses ini adalah untuk mencari nilai Rata-rata Produksi Beer pada Weekend dan Weekday menggunakan node **Spark GroupBy**. Caranya adalah dengan melakukan penjumlahan **(SUM)** pada kolom **production**, lalu di Group By berdasarkan **id**, **year**, **month**, **week**, dan **dayClassifier**-nya. 
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20day%20class%20config.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20day%20class%20config.JPG?raw=true)
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Electric%20Production/dokum/usage%20by%20day%20class%20config2.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Monthly%20Beer%20Production/dokum/usage%20by%20day%20class%20config2.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
