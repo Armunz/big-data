@@ -117,8 +117,8 @@ Selanjutnya, kita akan melakukan ekstraksi data untuk mendapatkan value waktu se
 Ada 4 proses yang harus diselesaikan, yaitu:
 
  - **Extract date-time attributes** (untuk mendapatkan waktu)
- - **Agreagations and time series** (agregasi Suhu minimum berdasarkan waktu)
- - **Compute daily, day segment percentages** (menghitung persentase dari Suhu minimum secara per hari, dan pada hari saat periode jam tertentu).
+ - **Agreagations and time series** (agregasi Produksi Listrik berdasarkan waktu)
+ - **Compute daily, day segment percentages** (menghitung persentase dari Produksi Listrik secara per hari, dan pada hari saat periode jam tertentu).
  - **Scatter Plot** (plotting hasil dari algoritma K-Means).
 
 ### 1. Extract date-time attributes
