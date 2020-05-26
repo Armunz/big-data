@@ -87,7 +87,7 @@ Ketika di-execute, maka hasilnya akan seperti berikut.
 Jika ingin mengeceknya HIVE-nya menggunakan DBeaver, maka hasilnya seperti berikut.
 Url HIVE:
 
-    jdbc:hive2://localhost:61526/
+    jdbc:hive2://localhost:63192/
 
 Hasil dari DBeaver:
 
@@ -136,10 +136,8 @@ SQL Query:
     SELECT
     id, 
     Date,
-    cast(Daily_minimum_temperatures as double) as
-    Daily_minimum_temperatures,
+    cast(Daily_minimum_temperatures as double) as Daily_minimum_temperatures,
     cast(Date as timestamp) as eventDate
-    
     FROM #table# t1
 
 Pada node **Spark SQL Query** (Initiate datetime conversion) kolom Daily_minimum_temperatures akan diubah formatnya menjadi double. 
@@ -165,8 +163,7 @@ Hasilnya adalah sebagai berikut:
     month(eventDate) as month,
     weekofyear(eventDate) as week,
     date_format(eventDate, 'EEEE') as dayOfWeek
-
-FROM #table# t1
+    FROM #table# t1
 
 Untuk proses ini akan dibentuk 4 kolom baru, yaitu:
 
@@ -262,7 +259,7 @@ Proses untuk mencari nilai Rata-rata dari Suhu minimum per Tahun telah selesai.
 
 Selanjutnya adalah melakukan Join untuk nilai Suhu minimum Total dan Rata-rata Suhu minimum per Tahun menggunakan node **Spark Joiner**.
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/Spark%20Joiner%20%28total%20usage%20+%20avg%20by%20year%29.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Daily%20Minimum%20Temperatures/dokum/spark%20joiner%20config.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -304,7 +301,7 @@ Proses untuk mencari nilai Rata-rata dari Suhu minimum per Bulan telah selesai.
 
 Selanjutnya adalah melakukan Join untuk Rata-rata Suhu minimum per Bulan dengan hasil join sebelumnya menggunakan node **Spark Joiner**.
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/Spark%20Joiner%20%28total%20usage%20+%20avg%20by%20year%20+%20avg%20by%20month%29.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Daily%20Minimum%20Temperatures/dokum/spark%20joiner%20config.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -346,7 +343,7 @@ Proses untuk mencari nilai Rata-rata dari Suhu minimum per Minggu telah selesai.
 
 Selanjutnya adalah melakukan Join untuk Rata-rata Suhu minimum per Minggu dengan hasil join sebelumnya menggunakan node **Spark Joiner**.
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/Spark%20Joiner%20%28total%20usage%20+%20avg%20by%20year%20+%20avg%20by%20month%20+%20avg%20by%20week%29.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Daily%20Minimum%20Temperatures/dokum/spark%20joiner%20config.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -390,7 +387,7 @@ Proses untuk mencari nilai Rata-rata dari Suhu minimum berdasarkan hari dalam Se
 
 Selanjutnya adalah melakukan Join untuk Rata-rata Suhu minimum berdasarkan hari dalam Seminggu dengan hasil join sebelumnya menggunakan node **Spark Joiner**.
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/Spark%20Joiner%20%28total%20usage%20+%20avg%20by%20year%20+%20avg%20by%20month%20+%20avg%20by%20week%20+%20avgDay%29.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Daily%20Minimum%20Temperatures/dokum/spark%20joiner%20config.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -432,7 +429,7 @@ Proses untuk mencari nilai Rata-rata dari Suhu minimum per Hari telah selesai.
 
 Selanjutnya adalah melakukan Join untuk Rata-rata Suhu minimum per Hari dengan hasil join sebelumnya menggunakan node **Spark Joiner**.
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/Spark%20Joiner%20%28total%20usage%20+%20avg%20by%20year%20+%20avg%20by%20month%20+%20avg%20by%20week%20+%20avgDay%20+%20avgDaily%29.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Daily%20Minimum%20Temperatures/dokum/spark%20joiner%20config.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -476,7 +473,7 @@ Proses untuk mencari nilai Rata-rata dari Suhu minimum pada saat Weekend dan Wee
 
 Selanjutnya adalah melakukan Join untuk Rata-rata Suhu minimum pada saat Weekend dan Weekday dengan hasil join sebelumnya menggunakan node **Spark Joiner**.
 
-![enter image description here](https://github.com/Armunz/big-data/blob/master/tugas7/dokum/Spark%20Joiner%20%28total%20usage%20+%20avg%20by%20year%20+%20avg%20by%20month%20+%20avg%20by%20week%20+%20avgDay%20+%20avgDaily%20+%20avgDaySegment%20+%20avgClassifier%29.JPG?raw=true)
+![enter image description here](https://github.com/Armunz/big-data/blob/master/eas/Daily%20Minimum%20Temperatures/dokum/spark%20joiner%20config.JPG?raw=true)
 
 Berikut adalah hasilnya:
 
@@ -503,6 +500,7 @@ SQL Query:
        (avgFriday / avgWeekly) * 100.0 as pctFriday,
        (avgSaturday / avgWeekly) * 100.0 as pctSaturday,
        (avgSunday / avgWeekly) * 100.0 as pctSunday
+       
        FROM #table#
        
 Pada Query di atas, akan dibuat 7 kolom yang merepresentasikan presentasi dari Suhu minimum per hari.
