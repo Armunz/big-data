@@ -135,10 +135,9 @@ SQL Query:
 
     SELECT
     id, 
-    DATE,
-    cast(IPG2211A2N as double) as production,
+    Date,
+    cast(Daily_minimum_temperatures as double) as Daily_minimum_temperatures,
     cast(Date as timestamp) as eventDate
-    
     FROM #table# t1
 
 Pada node **Spark SQL Query** (Initiate datetime conversion) kolom Daily_minimum_temperatures akan diubah formatnya menjadi double. 
@@ -157,14 +156,13 @@ Hasilnya adalah sebagai berikut:
 
     SELECT 
     id,
-    DATE,
-    production,
+    Date,
+    Daily_minimum_temperatures,
     eventDate,
     year(eventDate) as year,
     month(eventDate) as month,
     weekofyear(eventDate) as week,
     date_format(eventDate, 'EEEE') as dayOfWeek
-    
     FROM #table# t1
 
 Untuk proses ini akan dibentuk 4 kolom baru, yaitu:
